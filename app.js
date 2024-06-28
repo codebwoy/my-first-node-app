@@ -1,6 +1,11 @@
 const express = require("express");
 const server = express();
-const PORT = 3000;
+
+let port = 3000;
+if (process.env.PORT) {
+  port = process.env.PORT;
+}
+const PORT = port;
 
 server.use(express.static("static")); // serve static content from the "static" directory
 server.use(express.json()); // tells server that we are expecting json data to handle
